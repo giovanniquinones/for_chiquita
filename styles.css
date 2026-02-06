@@ -1,0 +1,277 @@
+@import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600&family=Pacifico&display=swap");
+
+:root {
+  color-scheme: light;
+  --pink-100: #fff0f6;
+  --pink-200: #ffd6e8;
+  --pink-300: #ffb3d4;
+  --pink-500: #ff7db4;
+  --pink-700: #ff4f98;
+  --plum: #5a2b5b;
+  --shadow: 0 20px 50px rgba(255, 79, 152, 0.2);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  font-family: "Baloo 2", "Segoe UI", sans-serif;
+  background: radial-gradient(circle at top, #fff 0%, var(--pink-100) 45%, #ffe2ee 100%);
+  color: var(--plum);
+  overflow-x: hidden;
+}
+
+.page {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  align-items: center;
+  padding: 80px 8vw 120px;
+  position: relative;
+}
+
+.hero {
+  background: #ffffffcc;
+  backdrop-filter: blur(8px);
+  border-radius: 32px;
+  padding: 32px 36px;
+  box-shadow: var(--shadow);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--pink-200);
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.hero h1 {
+  font-family: "Pacifico", cursive;
+  font-size: clamp(2.4rem, 4vw, 3.5rem);
+  margin-bottom: 12px;
+  color: var(--pink-700);
+}
+
+.hero p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.cta {
+  border: none;
+  background: var(--pink-500);
+  color: #fff;
+  font-size: 1rem;
+  padding: 12px 28px;
+  border-radius: 999px;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cta:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 30px 60px rgba(255, 79, 152, 0.35);
+}
+
+.gallery {
+  position: relative;
+  min-height: 520px;
+}
+
+.float-card {
+  position: absolute;
+  width: min(220px, 65vw);
+  aspect-ratio: 3 / 4;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  background: var(--pink-200);
+  border: 4px solid #fff;
+  animation: float 7s ease-in-out infinite;
+}
+
+.float-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: saturate(1.1);
+}
+
+.float-one {
+  top: 0;
+  left: 10%;
+  transform: rotate(-6deg);
+  animation-delay: 0s;
+}
+
+.float-two {
+  top: 120px;
+  right: 8%;
+  transform: rotate(7deg);
+  animation-delay: 1.5s;
+}
+
+.float-three {
+  bottom: -20px;
+  left: 35%;
+  transform: rotate(-2deg);
+  animation-delay: 3s;
+}
+
+.float-four {
+  top: 40px;
+  right: 35%;
+  transform: rotate(3deg);
+  animation-delay: 2.2s;
+}
+
+.float-five {
+  bottom: 40px;
+  right: 5%;
+  transform: rotate(-8deg);
+  animation-delay: 4.2s;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(var(--tilt, 0deg));
+  }
+  50% {
+    transform: translateY(-18px) rotate(var(--tilt, 0deg));
+  }
+}
+
+.float-one {
+  --tilt: -6deg;
+}
+
+.float-two {
+  --tilt: 7deg;
+}
+
+.float-three {
+  --tilt: -2deg;
+}
+
+.float-four {
+  --tilt: 3deg;
+}
+
+.float-five {
+  --tilt: -8deg;
+}
+
+.floating-hearts {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.floating-hearts span {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background: var(--pink-300);
+  transform: rotate(45deg);
+  border-radius: 4px;
+  opacity: 0.6;
+  animation: hearts 8s linear infinite;
+}
+
+.floating-hearts span::before,
+.floating-hearts span::after {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background: var(--pink-300);
+  border-radius: 50%;
+}
+
+.floating-hearts span::before {
+  left: -9px;
+}
+
+.floating-hearts span::after {
+  top: -9px;
+}
+
+.floating-hearts span:nth-child(1) {
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.floating-hearts span:nth-child(2) {
+  left: 35%;
+  animation-delay: 2s;
+  width: 14px;
+  height: 14px;
+}
+
+.floating-hearts span:nth-child(3) {
+  left: 55%;
+  animation-delay: 4s;
+  width: 22px;
+  height: 22px;
+}
+
+.floating-hearts span:nth-child(4) {
+  left: 75%;
+  animation-delay: 1s;
+}
+
+.floating-hearts span:nth-child(5) {
+  left: 88%;
+  animation-delay: 3s;
+}
+
+@keyframes hearts {
+  0% {
+    transform: translateY(100vh) translateX(0) rotate(45deg);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-10vh) translateX(var(--drift, 0px)) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 780px) {
+  .page {
+    padding-top: 60px;
+  }
+
+  .gallery {
+    min-height: 420px;
+  }
+
+  .float-card {
+    position: relative;
+    margin: 0 auto 18px;
+  }
+
+  .float-one,
+  .float-two,
+  .float-three,
+  .float-four,
+  .float-five {
+    inset: auto;
+    transform: none;
+  }
+}
