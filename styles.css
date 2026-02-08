@@ -84,13 +84,15 @@ body {
 }
 
 .gallery {
-  position: relative;
-  min-height: 520px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 18px;
+  align-items: start;
 }
 
 .float-card {
-  position: absolute;
-  width: min(220px, 65vw);
+  position: relative;
+  width: 100%;
   aspect-ratio: 3 / 4;
   border-radius: 24px;
   overflow: hidden;
@@ -108,41 +110,6 @@ body {
   filter: saturate(1.1);
 }
 
-.float-one {
-  top: 0;
-  left: 10%;
-  transform: rotate(-6deg);
-  animation-delay: 0s;
-}
-
-.float-two {
-  top: 120px;
-  right: 8%;
-  transform: rotate(7deg);
-  animation-delay: 1.5s;
-}
-
-.float-three {
-  bottom: -20px;
-  left: 35%;
-  transform: rotate(-2deg);
-  animation-delay: 3s;
-}
-
-.float-four {
-  top: 40px;
-  right: 35%;
-  transform: rotate(3deg);
-  animation-delay: 2.2s;
-}
-
-.float-five {
-  bottom: 40px;
-  right: 5%;
-  transform: rotate(-8deg);
-  animation-delay: 4.2s;
-}
-
 @keyframes float {
   0%,
   100% {
@@ -153,24 +120,19 @@ body {
   }
 }
 
-.float-one {
-  --tilt: -6deg;
+.float-card:nth-child(3n + 1) {
+  --tilt: -4deg;
+  animation-delay: 0.2s;
 }
 
-.float-two {
-  --tilt: 7deg;
-}
-
-.float-three {
-  --tilt: -2deg;
-}
-
-.float-four {
+.float-card:nth-child(3n + 2) {
   --tilt: 3deg;
+  animation-delay: 1.1s;
 }
 
-.float-five {
-  --tilt: -8deg;
+.float-card:nth-child(3n) {
+  --tilt: -1deg;
+  animation-delay: 2.2s;
 }
 
 .floating-hearts {
@@ -258,20 +220,6 @@ body {
   }
 
   .gallery {
-    min-height: 420px;
-  }
-
-  .float-card {
-    position: relative;
-    margin: 0 auto 18px;
-  }
-
-  .float-one,
-  .float-two,
-  .float-three,
-  .float-four,
-  .float-five {
-    inset: auto;
-    transform: none;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   }
 }
