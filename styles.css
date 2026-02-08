@@ -105,6 +105,14 @@ body {
   z-index: 5;
 }
 
+.love-modal-content {
+  background: #ffffffcc;
+  padding: 24px 28px 20px;
+  border-radius: 28px;
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+
 .love-reveal {
   width: min(320px, 70vw);
   height: auto;
@@ -112,6 +120,13 @@ body {
   transform: scale(0.8) translateY(10px);
   transition: transform 0.3s ease;
   filter: drop-shadow(0 20px 40px rgba(255, 79, 152, 0.25));
+}
+
+.love-text {
+  font-family: "Pacifico", cursive;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  color: var(--pink-700);
+  margin-top: 12px;
 }
 
 .love-active .love-modal {
@@ -175,57 +190,57 @@ body {
 }
 
 .orbit-one {
-  top: -8px;
-  left: 10%;
+  top: -18px;
+  left: 4%;
   --tilt: -5deg;
   animation-delay: 0.4s;
 }
 
 .orbit-two {
-  top: 6px;
-  right: 12%;
+  top: -6px;
+  right: 4%;
   --tilt: 4deg;
   animation-delay: 1.2s;
 }
 
 .orbit-three {
-  top: 40%;
-  left: 2%;
+  top: 38%;
+  left: -2%;
   --tilt: -3deg;
   animation-delay: 2s;
 }
 
 .orbit-four {
-  top: 42%;
-  right: 2%;
+  top: 38%;
+  right: -2%;
   --tilt: 3deg;
   animation-delay: 2.6s;
 }
 
 .orbit-five {
-  bottom: -6px;
-  left: 18%;
+  bottom: -14px;
+  left: 10%;
   --tilt: -2deg;
   animation-delay: 1.6s;
 }
 
 .orbit-six {
-  bottom: -6px;
-  right: 18%;
+  bottom: -14px;
+  right: 10%;
   --tilt: 2deg;
   animation-delay: 0.9s;
 }
 
 .orbit-seven {
-  top: 18%;
-  left: 32%;
+  top: 8%;
+  left: 24%;
   --tilt: -4deg;
   animation-delay: 1.8s;
 }
 
 .orbit-eight {
-  top: 18%;
-  right: 32%;
+  top: 8%;
+  right: 24%;
   --tilt: 4deg;
   animation-delay: 2.4s;
 }
@@ -319,38 +334,40 @@ body {
 
 .floating-charms .charm {
   position: absolute;
-  animation: hearts 10s linear infinite;
-  opacity: 0.85;
+  animation: hearts 6.5s linear infinite;
+  opacity: 0.9;
+  font-size: 32px;
 }
+
 
 .floating-charms .cactus:nth-child(1) {
   left: 8%;
   animation-delay: 0s;
-  animation-duration: 9s;
+  animation-duration: 6s;
 }
 
 .floating-charms .cactus:nth-child(2) {
   left: 72%;
-  animation-delay: 2s;
-  animation-duration: 11s;
+  animation-delay: 1.5s;
+  animation-duration: 7s;
 }
 
 .floating-charms .bird:nth-child(3) {
   left: 18%;
-  animation-delay: 1s;
-  animation-duration: 8s;
+  animation-delay: 0.8s;
+  animation-duration: 5.5s;
 }
 
 .floating-charms .bird:nth-child(4) {
   left: 52%;
-  animation-delay: 3s;
-  animation-duration: 10s;
+  animation-delay: 2.2s;
+  animation-duration: 6.5s;
 }
 
 .floating-charms .bird:nth-child(5) {
   left: 86%;
-  animation-delay: 4s;
-  animation-duration: 12s;
+  animation-delay: 3.4s;
+  animation-duration: 7.5s;
 }
 
 @media (max-width: 780px) {
