@@ -13,3 +13,11 @@ hearts.forEach((heart) => {
   heart.style.setProperty("--drift", `${drift}px`);
 });
 
+const loveButton = document.querySelector(".cta");
+
+if (loveButton) {
+  loveButton.addEventListener("click", () => {
+    document.body.classList.toggle("love-active");
+  });
+}
+
