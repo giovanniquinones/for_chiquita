@@ -14,10 +14,17 @@ hearts.forEach((heart) => {
 });
 
 const loveButton = document.querySelector(".cta");
+const loveModal = document.querySelector(".love-modal");
 
-if (loveButton) {
+if (loveButton && loveModal) {
   loveButton.addEventListener("click", () => {
-    document.body.classList.toggle("love-active");
+    document.body.classList.add("love-active");
+    loveModal.setAttribute("aria-hidden", "false");
+  });
+
+  loveModal.addEventListener("click", () => {
+    document.body.classList.remove("love-active");
+    loveModal.setAttribute("aria-hidden", "true");
   });
 }
 

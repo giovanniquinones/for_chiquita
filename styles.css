@@ -39,6 +39,8 @@ body {
   max-width: 420px;
   margin: 0 auto;
   text-align: center;
+  position: relative;
+  z-index: 2;
 }
 
 .hero-mascot {
@@ -90,18 +92,34 @@ body {
   box-shadow: 0 30px 60px rgba(255, 79, 152, 0.35);
 }
 
+.love-modal {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(255, 240, 246, 0.7);
+  backdrop-filter: blur(6px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 5;
+}
+
 .love-reveal {
-  width: 160px;
+  width: min(320px, 70vw);
   height: auto;
   display: block;
-  margin: 18px auto 0;
-  opacity: 0;
-  transform: scale(0.7) translateY(10px);
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transform: scale(0.8) translateY(10px);
+  transition: transform 0.3s ease;
+  filter: drop-shadow(0 20px 40px rgba(255, 79, 152, 0.25));
+}
+
+.love-active .love-modal {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .love-active .love-reveal {
-  opacity: 1;
   transform: scale(1) translateY(0);
 }
 
@@ -116,6 +134,7 @@ body {
   position: absolute;
   inset: 0;
   pointer-events: none;
+  z-index: 1;
 }
 
 .float-card {
@@ -141,6 +160,8 @@ body {
 
 .float-card video {
   border: none;
+  object-fit: contain;
+  background: #fff;
 }
 
 @keyframes float {
@@ -154,57 +175,57 @@ body {
 }
 
 .orbit-one {
-  top: -10px;
-  left: 6%;
+  top: -8px;
+  left: 10%;
   --tilt: -5deg;
   animation-delay: 0.4s;
 }
 
 .orbit-two {
-  top: 40px;
-  right: 8%;
+  top: 6px;
+  right: 12%;
   --tilt: 4deg;
   animation-delay: 1.2s;
 }
 
 .orbit-three {
-  top: 55%;
+  top: 40%;
   left: 2%;
   --tilt: -3deg;
   animation-delay: 2s;
 }
 
 .orbit-four {
-  top: 60%;
-  right: 4%;
+  top: 42%;
+  right: 2%;
   --tilt: 3deg;
   animation-delay: 2.6s;
 }
 
 .orbit-five {
-  bottom: -10px;
-  left: 30%;
+  bottom: -6px;
+  left: 18%;
   --tilt: -2deg;
   animation-delay: 1.6s;
 }
 
 .orbit-six {
-  bottom: 10px;
-  right: 26%;
+  bottom: -6px;
+  right: 18%;
   --tilt: 2deg;
   animation-delay: 0.9s;
 }
 
 .orbit-seven {
-  top: 8%;
-  left: 34%;
+  top: 18%;
+  left: 32%;
   --tilt: -4deg;
   animation-delay: 1.8s;
 }
 
 .orbit-eight {
-  top: 12%;
-  right: 34%;
+  top: 18%;
+  right: 32%;
   --tilt: 4deg;
   animation-delay: 2.4s;
 }
@@ -298,48 +319,38 @@ body {
 
 .floating-charms .charm {
   position: absolute;
-  animation: drift 12s ease-in-out infinite;
+  animation: hearts 10s linear infinite;
   opacity: 0.85;
 }
 
 .floating-charms .cactus:nth-child(1) {
   left: 8%;
-  top: 18%;
   animation-delay: 0s;
+  animation-duration: 9s;
 }
 
 .floating-charms .cactus:nth-child(2) {
-  right: 12%;
-  bottom: 18%;
+  left: 72%;
   animation-delay: 2s;
+  animation-duration: 11s;
 }
 
 .floating-charms .bird:nth-child(3) {
   left: 18%;
-  top: 6%;
   animation-delay: 1s;
+  animation-duration: 8s;
 }
 
 .floating-charms .bird:nth-child(4) {
-  right: 18%;
-  top: 10%;
+  left: 52%;
   animation-delay: 3s;
+  animation-duration: 10s;
 }
 
 .floating-charms .bird:nth-child(5) {
-  left: 45%;
-  bottom: 8%;
+  left: 86%;
   animation-delay: 4s;
-}
-
-@keyframes drift {
-  0%,
-  100% {
-    transform: translateY(0) translateX(0) scale(1);
-  }
-  50% {
-    transform: translateY(-18px) translateX(12px) scale(1.05);
-  }
+  animation-duration: 12s;
 }
 
 @media (max-width: 780px) {
