@@ -114,12 +114,9 @@ body {
   width: min(360px, 80vw);
 }
 
-.modal-image {
+.tenor-gif-embed {
   max-width: 320px;
-  width: 100%;
-  height: auto;
   margin: 0 auto;
-  display: block;
 }
 
 .love-text {
@@ -247,6 +244,13 @@ body {
   left: 8%;
   --tilt: -3deg;
   animation-delay: 1.2s;
+}
+
+.orbit-ten {
+  top: 45%;
+  right: 5%;
+  --tilt: 5deg;
+  animation-delay: 0.6s;
 }
 
 .floating-hearts {
