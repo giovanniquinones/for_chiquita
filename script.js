@@ -28,3 +28,54 @@ if (loveButton && loveModal) {
   });
 }
 
+// Media viewer functionality
+const mediaViewer = document.querySelector(".media-viewer");
+const mediaViewerContent = document.querySelector(".media-viewer-content");
+const mediaViewerClose = document.querySelector(".media-viewer-close");
+const clickableMedia = document.querySelectorAll(".clickable-media");
+
+clickableMedia.forEach((item) => {
+  item.addEventListener("click", () => {
+    const mediaElement = item.querySelector("img, video");
+    if (!mediaElement) return;
+
+    // Clear previous content
+    mediaViewerContent.innerHTML = "";
+
+    // Clone the media element
+    const clone = mediaElement.cloneNode(true);
+    
+    // If it's a video, ensure it has controls and isn't muted
+    if (clone.tagName === "VIDEO") {
+      clone.controls = true;
+      clone.muted = false;
+      clone.autoplay = true;
+    }
+
+    mediaViewerContent.appendChild(clone);
+    mediaViewer.classList.add("active");
+    mediaViewer.setAttribute("aria-hidden", "false");
+  });
+});
+
+// Close media viewer
+const closeMediaViewer = () => {
+  mediaViewer.classList.remove("active");
+  mediaViewer.setAttribute("aria-hidden", "true");
+  mediaViewerContent.innerHTML = "";
+};
+
+mediaViewerClose.addEventListener("click", closeMediaViewer);
+mediaViewer.addEventListener("click", (e) => {
+  if (e.target === mediaViewer) {
+    closeMediaViewer();
+  }
+});
+
+// Close with Escape key
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && mediaViewer.classList.contains("active")) {
+    closeMediaViewer();
+  }
+});
+

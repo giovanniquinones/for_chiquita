@@ -167,6 +167,16 @@ body {
   filter: saturate(1.1);
 }
 
+.clickable-media {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.clickable-media:hover {
+  transform: scale(1.05) rotate(var(--tilt, 0deg)) !important;
+  z-index: 10;
+}
+
 .float-card video {
   border: none;
   object-fit: contain;
@@ -376,6 +386,64 @@ body {
   left: 86%;
   animation-delay: 3.4s;
   animation-duration: 7.5s;
+}
+
+.media-viewer {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.media-viewer.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.media-viewer-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 28px;
+  color: var(--plum);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1001;
+  transition: background 0.2s ease;
+}
+
+.media-viewer-close:hover {
+  background: #fff;
+}
+
+.media-viewer-content {
+  max-width: 90vw;
+  max-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.media-viewer-content img,
+.media-viewer-content video {
+  max-width: 100%;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
 }
 
 @media (max-width: 780px) {
